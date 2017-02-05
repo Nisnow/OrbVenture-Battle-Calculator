@@ -148,6 +148,19 @@ public class GUI
         aPane.setLayout(new FlowLayout(FlowLayout.CENTER));
     }
     
+    private static JFormattedTextField createInputField(JPanel pPanel, String pText)
+    {
+        JLabel label = new JLabel(pText);
+        
+        JFormattedTextField field = new JFormattedTextField();
+        field.setColumns(10);
+        
+        pPanel.add(label);
+        pPanel.add(field);
+        
+        return field;
+    }
+    
     /* Input window */
     private static void createInputWindow(int type, JButton button) //0 = enemy; 1 = ally
     {
@@ -174,102 +187,45 @@ public class GUI
         JLabel headerLabel = new JLabel("");
         headerLabel.setText("Input stats for new " + sLabel);
         headerLabel.setVerticalAlignment(JLabel.TOP);
-        headerLabel.setHorizontalAlignment(JLabel.CENTER);       
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
         
-        /* Labels of stats */
-        JLabel PWR_LABEL  = new JLabel("PWR: ");
-        JLabel DEF_LABEL  = new JLabel("DEF: ");
-        JLabel APT_LABEL  = new JLabel("APT: ");
-        JLabel RES_LABEL  = new JLabel("RES: ");
-        JLabel SPD_LABEL  = new JLabel("SPD: ");
-        JLabel TGT_LABEL  = new JLabel("TGT: ");
-        JLabel AGI_LABEL  = new JLabel("AGI: ");
-        JLabel CRT_LABEL  = new JLabel("CRT: ");
-        JLabel HP_LABEL   = new JLabel("HP: ");
-        JLabel NAME_LABEL = new JLabel("NAME: ");
-        JLabel LVL_LABEL  = new JLabel("LVL: ");
-        
-        /* Text fields */
-        JFormattedTextField PWR_FIELD = new JFormattedTextField();
-        PWR_FIELD.setValue(5);
-        PWR_FIELD.setColumns(10);
-        
-        JFormattedTextField DEF_FIELD = new JFormattedTextField();
-        DEF_FIELD.setValue(5);
-        DEF_FIELD.setColumns(10);
-        
-        JFormattedTextField APT_FIELD = new JFormattedTextField();
-        APT_FIELD.setValue(5);
-        APT_FIELD.setColumns(10);
-        
-        JFormattedTextField RES_FIELD = new JFormattedTextField();
-        RES_FIELD.setValue(5);
-        RES_FIELD.setColumns(10);
-        
-        JFormattedTextField SPD_FIELD = new JFormattedTextField();
-        SPD_FIELD.setValue(5);
-        SPD_FIELD.setColumns(10);
-        
-        JFormattedTextField TGT_FIELD = new JFormattedTextField();
-        TGT_FIELD.setValue(5);
-        TGT_FIELD.setColumns(10);
-        
-        JFormattedTextField AGI_FIELD = new JFormattedTextField();
-        AGI_FIELD.setValue(5);
-        AGI_FIELD.setColumns(10);
-        
-        JFormattedTextField CRT_FIELD = new JFormattedTextField();
-        CRT_FIELD.setValue(5);
-        CRT_FIELD.setColumns(10);
-        
-        JFormattedTextField HP_FIELD = new JFormattedTextField();
-        HP_FIELD.setValue(1);
-        HP_FIELD.setColumns(10);
-        
-        JFormattedTextField NAME_FIELD = new JFormattedTextField();
-        NAME_FIELD.setValue("");
-        NAME_FIELD.setColumns(10);
-        
-        JFormattedTextField LVL_FIELD = new JFormattedTextField();
-        LVL_FIELD.setValue(1);
-        LVL_FIELD.setColumns(10);
-       
         /* Add the labels and fields to the pane */
         JPanel wStatPane = new JPanel(new GridLayout(6, 2));
         JPanel eStatPane = new JPanel(new GridLayout(6, 2));
         
-        wStatPane.add(PWR_LABEL);    
-        wStatPane.add(PWR_FIELD);    
-     
-        wStatPane.add(DEF_LABEL);    
-        wStatPane.add(DEF_FIELD);    
+        /* Text fields */
+        JFormattedTextField PWR_FIELD = createInputField(wStatPane, "PWR: ");
+        PWR_FIELD.setValue(5);
         
-        wStatPane.add(APT_LABEL);
-        wStatPane.add(APT_FIELD);
+        JFormattedTextField DEF_FIELD = createInputField(wStatPane, "DEF: ");
+        DEF_FIELD.setValue(5);
         
-        wStatPane.add(RES_LABEL);
-        wStatPane.add(RES_FIELD);
+        JFormattedTextField APT_FIELD = createInputField(wStatPane, "APT: ");
+        APT_FIELD.setValue(5);
         
-        wStatPane.add(HP_LABEL);
-        wStatPane.add(HP_FIELD);
+        JFormattedTextField RES_FIELD = createInputField(wStatPane, "RES: ");
+        RES_FIELD.setValue(5);
         
-        wStatPane.add(LVL_LABEL);
-        wStatPane.add(LVL_FIELD);
+        JFormattedTextField SPD_FIELD = createInputField(eStatPane, "SPD: ");
+        SPD_FIELD.setValue(5);
         
-        eStatPane.add(SPD_LABEL);
-        eStatPane.add(SPD_FIELD);
+        JFormattedTextField TGT_FIELD = createInputField(eStatPane, "TGT: ");
+        TGT_FIELD.setValue(5);
         
-        eStatPane.add(TGT_LABEL);
-        eStatPane.add(TGT_FIELD);
+        JFormattedTextField AGI_FIELD = createInputField(eStatPane, "PWR: ");
+        AGI_FIELD.setValue(5);
         
-        eStatPane.add(AGI_LABEL);
-        eStatPane.add(AGI_FIELD);
+        JFormattedTextField CRT_FIELD = createInputField(eStatPane, "CTR: ");
+        CRT_FIELD.setValue(5);
         
-        eStatPane.add(CRT_LABEL);
-        eStatPane.add(CRT_FIELD);
+        JFormattedTextField HP_FIELD = createInputField(wStatPane, "HP: ");
+        HP_FIELD.setValue(1);
         
-        eStatPane.add(NAME_LABEL);
-        eStatPane.add(NAME_FIELD);
+        JFormattedTextField NAME_FIELD = createInputField(eStatPane, "NAME: ");
+        NAME_FIELD.setValue("");
+        
+        JFormattedTextField LVL_FIELD = createInputField(wStatPane, "LVL: ");
+        LVL_FIELD.setValue(1);
         
         eStatPane.add(new JLabel(" "));
         eStatPane.add(new JLabel(" "));
